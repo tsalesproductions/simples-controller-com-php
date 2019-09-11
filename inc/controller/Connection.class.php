@@ -1,9 +1,9 @@
 <?php
 	class Connection{
-		private $host = "localhost";
-		private $user = "root";
-		private $senha = "";
-		private $banco = "blog";
+		private $host = db_host;
+		private $user = db_user;
+		private $senha = db_pass;
+		private $banco = db_db;
 
 		public $pdo;
 
@@ -17,12 +17,29 @@
 			}
 		}
 
+		public function insert($query, $params){
+			try{
+				$stmt = $this->pdo->prepare($query);
+
+				$stmt->execute(isset($params) ? $params : null);
+
+				return $stmt->rowCount();
+
+			}catch(PDOException $e){
+				echo $e->getMessage();
+			}
+		}
+
 		public function select($query, $params){
 			$stmt = $this->pdo->prepare($query);
 			
 			$stmt->execute(isset($params) ? $params : null);
 
-			return $stmt->fetchAll();
+			if($stmt->rowCount() > 0){
+				return $stmt->fetchAll();
+			}else{
+				return [];
+			}
 		}
 
 		public function update($query, $params){
@@ -42,5 +59,19 @@
 				echo $e->getMessage();
 			}
 		}
+
+		public function rowCount($query, $params){
+			try{
+				$stmt = $this->pdo->prepare($query);
+
+				$stmt->execute(isset($params) ? $params : null);
+
+				return $stmt->rowCount();
+
+			}catch(PDOException $e){
+				echo $e->getMessage();
+			}
+		}
+		
 	}
 ?>

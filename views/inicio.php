@@ -1,1 +1,12 @@
-<h1>Bem vindo <small>Você está no inicio!</small></h1>
+<?php
+    $sess = new Sessions();
+
+    //$sess->setSessions(false, "Thiago Sales", false, false, false);
+
+    $sess->sessionDestroy(false);
+
+    //echo $_SESSION['authNome'];
+
+?>
+
+adsadsa

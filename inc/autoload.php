@@ -1,5 +1,4 @@
 <?php
-	session_start();
 	
 	class Autoload{
 	    public function __construct(){
@@ -9,7 +8,7 @@
 
 	    private function load($className){
 	        $extension = spl_autoload_extensions();
-	        require_once (__DIR__ . '/' . $className.$extension);
+	        require_once ('controller/' . $className.$extension);
 	    }
 	}
 

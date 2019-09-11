@@ -10,7 +10,7 @@
 				include($dir.$explode[0].$ext);
 			}else{
 				$utils = new Utils();
-				$utils->alert("error", "Página não encontrada!");
+				$utils->alert("danger", "Página não encontrada!");
 			}
 		}
 
@@ -20,7 +20,7 @@
 			$dir = 'views/';
 			$ext = '.php';
 
-			if(file_exists($dir.$explode[0].$ext) && isset($_SESSION['authId'])){
+			if(file_exists($dir.$explode[0].$ext) && isset($_SESSION['authUsuario'])){
 				include($dir.$explode[0].$ext);
 			}else{
 				include($dir.'login'.$ext);
