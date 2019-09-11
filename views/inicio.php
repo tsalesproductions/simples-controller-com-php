@@ -1,12 +1,1 @@
-<?php
-    $sess = new Sessions();
-
-    //$sess->setSessions(false, "Thiago Sales", false, false, false);
-
-    $sess->sessionDestroy(false);
-
-    //echo $_SESSION['authNome'];
-
-?>
-
-adsadsa
+<h1>PROJETO INICIADO; <small>inicio carregado;</small></h1>
